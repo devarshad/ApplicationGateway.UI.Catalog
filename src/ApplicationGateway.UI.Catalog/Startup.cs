@@ -10,7 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 namespace ApplicationGateway.UI.Catalog
-{
+{ 
     public class Startup
     {
         public Startup(IConfiguration configuration)
