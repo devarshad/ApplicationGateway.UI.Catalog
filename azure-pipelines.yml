@@ -26,9 +26,9 @@ steps:
     arguments: '--configuration $(buildConfiguration)'
 - task: CopyFiles@2
   inputs:
-    sourceFolder: $(Build.SourcesDirectory)
+    contents: '_buildOutput/**'
     targetFolder: $(Build.ArtifactStagingDirectory)
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: drop
+    pathToPublish: $(Build.ArtifactStagingDirectory)
+    artifactName: drop
