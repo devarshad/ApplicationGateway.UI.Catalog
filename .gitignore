@@ -12,7 +12,8 @@ packages
 
 .vs
 
-
+-dist
+**/wwwroot/lib
 node_modules
 
 
