@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
@@ -20,7 +21,13 @@ namespace ApplicationGateway.UI.Catalog
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>();
+                    webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+                    {
+                        config.SetBasePath(Directory.GetCurrentDirectory())
+                                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                                .AddEnvironmentVariables();
+                    })
+                    .UseStartup<Startup>();
                 });
     }
 }
